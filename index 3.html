@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Almíbar Pastry Studio — Pastry Box</title>
+  <meta name="description" content="Ordena tu Pastry Box de Almíbar Pastry Studio. Pago por ATH Móvil y órdenes por WhatsApp." />
+  <style>
+    :root{
+      --cream:#fbf6ea;
+      --cream-2:#f3ead3;
+      --ink:#2b2520;
+      --muted:#6b625a;
+      --card:#fffaf0;
+      --border:rgba(43,37,32,.14);
+      --shadow: 0 10px 30px rgba(0,0,0,.08);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--ink);
+      background:
+        radial-gradient(900px 500px at 20% -10%, #fff, transparent 55%),
+        radial-gradient(900px 500px at 85% 10%, #fff, transparent 55%),
+        linear-gradient(180deg, var(--cream), var(--cream-2));
+      min-height:100vh;
+    }
+    .wrap{max-width:1100px;margin:0 auto;padding:28px 18px 60px}
+    header{
+      display:flex;align-items:center;justify-content:space-between;gap:16px;
+      padding:18px 20px;border:1px solid var(--border);border-radius:var(--radius);
+      background:rgba(255,255,255,.6);backdrop-filter: blur(6px);
+      box-shadow: var(--shadow);
+    }
+    .brand{display:flex;flex-direction:column;line-height:1.05;}
+    .brand .name{font-size:1.25rem;font-weight:800;letter-spacing:.2px;}
+    .brand .tag{margin-top:6px;color:var(--muted);font-size:.95rem;}
+    .pill{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:10px 12px;border-radius:999px;border:1px solid var(--border);
+      background:rgba(255,255,255,.55);
+      font-size:.95rem;color:var(--muted);
+      white-space:nowrap;
+    }
+    .pill strong{color:var(--ink)}
+    .hero{
+      margin-top:18px;
+      display:grid;grid-template-columns: 1.2fr .8fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    .card{
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      background:rgba(255,255,255,.66);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .card .inner{padding:20px}
+    h1{margin:0 0 10px;font-size:2rem;letter-spacing:-.3px}
+    p{margin:0 0 12px;color:var(--muted);line-height:1.45}
+    .price{
+      display:flex;align-items:baseline;gap:10px;margin-top:14px;
+      padding:14px 16px;border-radius:14px;background:var(--card);
+      border:1px solid var(--border);
+    }
+    .price .amount{font-size:2rem;font-weight:900}
+    .price .note{color:var(--muted);font-size:.95rem}
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+      margin-top:16px;
+    }
+    .menu{
+      padding:0;margin:0;list-style:none;
+      display:grid;gap:10px;
+    }
+    .menu li{
+      display:flex;justify-content:space-between;gap:12px;
+      padding:12px 14px;border-radius:14px;background:var(--card);
+      border:1px solid var(--border);
+    }
+    .menu li span{color:var(--muted)}
+    .menu li b{font-weight:800}
+    .form{display:grid;gap:10px;margin-top:8px;}
+    label{font-size:.9rem;color:var(--muted)}
+    input, select, textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.75);
+      color:var(--ink);
+      outline:none;
+      font-size:1rem;
+    }
+    textarea{min-height:92px;resize:vertical}
+    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding:12px 14px;border-radius:14px;border:1px solid var(--border);
+      background:rgba(255,255,255,.75);
+      cursor:pointer;
+      font-weight:800;
+      transition: transform .06s ease, filter .15s ease;
+      text-decoration:none;
+    }
+    .btn:active{transform:translateY(1px)}
+    .btn.primary{background:linear-gradient(180deg,#fff,#fff4dc);}
+    .fine{font-size:.88rem;color:var(--muted);line-height:1.45;margin-top:12px}
+    footer{
+      margin-top:22px;text-align:center;color:var(--muted);font-size:.9rem;
+    }
+    .badge{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:10px 12px;border-radius:999px;
+      background:rgba(255,255,255,.6);
+      border:1px solid var(--border);
+    }
+    .two{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+    }
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+      .two{grid-template-columns:1fr}
+      h1{font-size:1.75rem}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="name">Almíbar Pastry Studio</div>
+        <div class="tag">Pastry Box — ordena por WhatsApp</div>
+      </div>
+      <div class="pill">
+        <span>Precio:</span> <strong>$25</strong>
+        <span>• Pago:</span> <strong>ATH Móvil</strong>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="card">
+        <div class="inner">
+          <h1>Pastry Box (única)</h1>
+          <p>
+            Ordena tu <b>Pastry Box</b> por WhatsApp. El pago se realiza por <b>ATH Móvil</b>.
+            Selecciona tu opción de <b>pickup</b> (fecha y hora) y envía la orden.
+          </p>
+
+          <div class="price" aria-label="Precio">
+            <div class="amount">$25</div>
+            <div class="note">por Pastry Box • sujeto a disponibilidad</div>
+          </div>
+
+          <div class="grid">
+            <div>
+              <h2 style="margin:14px 0 10px;font-size:1.15rem;">Producto</h2>
+              <ul class="menu">
+                <li><b>Pastry Box</b> <span>1 opción</span></li>
+              </ul>
+              <p class="fine">
+                Incluye selección del día. Para alergias o notas especiales, escríbelo en “Notas”.
+              </p>
+            </div>
+
+            <div>
+              <h2 style="margin:14px 0 10px;font-size:1.15rem;">Información de pago</h2>
+              <div class="card" style="background:var(--card);border:1px solid var(--border);box-shadow:none;">
+                <div class="inner" style="padding:14px 14px 12px;">
+                  <div class="badge"><b>ATH Móvil</b> <span style="color:var(--muted)">•</span> <span id="athInfo">/AlmibarPastryStudio</span></div>
+                  <p class="fine" style="margin-top:10px">
+                    Envía el pago a la cuenta indicada y adjunta comprobante (screenshot) en WhatsApp junto con tu orden.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="inner">
+          <h2 style="margin:0 0 10px;font-size:1.25rem;">Enviar orden</h2>
+          <p>Completa los detalles y presiona <b>“Enviar por WhatsApp”</b>.</p>
+
+          <form class="form" onsubmit="sendWhatsApp(event)">
+            <div>
+              <label for="name">Nombre</label>
+              <input id="name" name="name" placeholder="Tu nombre" required />
+            </div>
+
+            <div class="two">
+              <div>
+                <label for="qty">Cantidad</label>
+                <input id="qty" name="qty" type="number" min="1" value="1" required />
+              </div>
+
+              <div>
+                <label for="pickupType">Tipo de entrega</label>
+                <select id="pickupType" name="pickupType" required>
+                  <option value="Pickup" selected>Pickup</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="two">
+              <div>
+                <label for="pickupDate">Fecha de pickup</label>
+                <input id="pickupDate" name="pickupDate" type="date" required />
+              </div>
+              <div>
+                <label for="pickupTime">Hora de pickup</label>
+                <input id="pickupTime" name="pickupTime" type="time" required />
+              </div>
+            </div>
+
+            <div>
+              <label for="pickupLocation">Lugar de pickup</label>
+              <select id="pickupLocation" name="pickupLocation" required>
+                <option value="" disabled selected>Selecciona…</option>
+                <option>Por coordinar (confirmar por WhatsApp)</option>
+                <option>Pickup Location #1</option>
+                <option>Pickup Location #2</option>
+              </select>
+              <p class="fine" style="margin-top:8px">
+                Puedes cambiar “Pickup Location #1/#2” por tus lugares reales.
+              </p>
+            </div>
+
+            <div>
+              <label for="notes">Notas (alergias, dedicatoria, etc.)</label>
+              <textarea id="notes" name="notes" placeholder="Escribe aquí..."></textarea>
+            </div>
+
+            <div class="actions">
+              <button class="btn primary" type="submit">Enviar por WhatsApp</button>
+              <button class="btn" type="button" onclick="copyPayment()">Copiar info de ATH</button>
+            </div>
+
+            <p class="fine">
+              Al enviar, se abrirá WhatsApp con el mensaje prellenado. Precio unitario: <b>$25</b>.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div style="margin-bottom:10px;">
+        <span class="badge">© <span id="year"></span> Almíbar Pastry Studio</span>
+      </div>
+      <div>Hecho con amor y crema ✨</div>
+    </footer>
+  </div>
+
+  <script>
+    // ✅ WhatsApp Puerto Rico: 1 + número (sin signos ni espacios)
+    const WHATSAPP_NUMBER = "19392319691";
+
+    // ✅ CAMBIA AQUÍ TU USUARIO/INFO DE ATH Móvil
+    const ATH_MOBILE_INFO = "/AlmibarPastryStudio";
+
+    const PRODUCT_NAME = "Pastry Box";
+    const PRICE = 25;
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById("athInfo").textContent = ATH_MOBILE_INFO;
+
+    // Poner fecha mínima hoy (según el reloj del dispositivo)
+    (function setMinDate(){
+      const d = new Date();
+      const yyyy = d.getFullYear();
+      const mm = String(d.getMonth()+1).padStart(2,"0");
+      const dd = String(d.getDate()).padStart(2,"0");
+      document.getElementById("pickupDate").min = `${yyyy}-${mm}-${dd}`;
+    })();
+
+    function money(n){
+      return "$" + Number(n).toFixed(2);
+    }
+
+    function sendWhatsApp(e){
+      e.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const qty = Number(document.getElementById("qty").value || 1);
+      const pickupDate = document.getElementById("pickupDate").value;
+      const pickupTime = document.getElementById("pickupTime").value;
+      const pickupLocation = document.getElementById("pickupLocation").value;
+      const notes = document.getElementById("notes").value.trim();
+
+      const total = PRICE * qty;
+
+      const msg =
+`Hola, soy ${name} 👋
+Quiero ordenar:
+• Producto: ${PRODUCT_NAME}
+• Cantidad: ${qty}
+• Precio unitario: ${money(PRICE)}
+• Total: ${money(total)}
+
+Pickup:
+• Fecha: ${pickupDate}
+• Hora: ${pickupTime}
+• Lugar: ${pickupLocation}
+
+Pago por ATH Móvil a: ${ATH_MOBILE_INFO}
+Adjunto comprobante en este chat.
+
+Notas:
+${notes || "—"}`;
+
+      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+      window.open(url, "_blank");
+    }
+
+    async function copyPayment(){
+      const text = `ATH Móvil: ${ATH_MOBILE_INFO}`;
+      try{
+        await navigator.clipboard.writeText(text);
+        alert("Info de ATH copiada ✅");
+      }catch(err){
+        prompt("Copia esta info de ATH:", text);
+      }
+    }
+  </script>
+</body>
+</html>
